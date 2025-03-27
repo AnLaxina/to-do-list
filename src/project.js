@@ -12,7 +12,23 @@ export default class Project {
     }
 
     deleteTodo(index) {
-        // Deletes a ToDo at a specified index but only 1
+        // Deletes a ToDo at a specified index but deletes only 1 item
         this.listOfToDos.splice(index, 1);
+    }
+
+    editTitle(index, title) {
+        this.listOfToDos[index].title = title;
+    }
+
+    editDescription(index, description) {
+        this.listOfToDos[index].description = description;
+    }
+
+    editDueDate(index, dueDate) {
+        this.listOfToDos[index].dueDate = dueDate;
+    }
+
+    editPriority(index, priority) {
+        this.listOfToDos[index].priority = priority;
     }
 }
