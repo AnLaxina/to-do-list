@@ -7,3 +7,24 @@
 body {
     background-color: #C6E7FF;
 }
+
+/* For testing/designing with grid, I'll colour each semantic element to get a feel of the site */
+header {
+    background-color: aqua;
+    height: 100px;
+}
+
+main {
+    background-color: red;
+    height: 100px;
+}
+
+aside {
+    background-color: violet;
+    height: 100px;
+}
+
+footer {
+    background-color: orange;
+    height: 100px;
+}
