@@ -12,3 +12,7 @@ listOfToDos.push(todo);
 listOfToDos.push(todo2);
 
 project.viewAllTodos();
+
+console.log("After deleting one ToDo, here are all the ToDo's now:");
+project.deleteTodo(1);
+project.viewAllTodos();

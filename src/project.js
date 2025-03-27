@@ -10,4 +10,9 @@ export default class Project {
             console.log(`${toDo.title} - Due Date: ${toDo.dueDate}`)
         }
     }
+
+    deleteTodo(index) {
+        // Deletes a ToDo at a specified index but only 1
+        this.listOfToDos.splice(index, 1);
+    }
 }
