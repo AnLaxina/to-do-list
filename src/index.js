@@ -2,6 +2,8 @@ import ToDoListItem from "./todo";
 import Project from "./project";
 import DateTime from "./datetime";
 
+import "./css/style.css";
+
 const listOfToDos = [];
 const project = new Project(listOfToDos);
 
