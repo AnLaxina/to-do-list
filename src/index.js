@@ -3,6 +3,7 @@ import Project from "./project";
 import DateTime from "./datetime";
 
 import "./css/style.css";
+import "./css/reset.css";
 
 const listOfToDos = [];
 const project = new Project(listOfToDos);
