@@ -4,30 +4,42 @@
     #FBFBFB (pretty much white)
     #FFDDAE (peach colour)
 */
+
+/* Full viewport height */
+html,
+body {
+    height: 100%;
+}
+
 body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 50px 1fr 1fr 50px;
     background-color: #C6E7FF;
+    grid-template-areas:
+        "header header header header"
+        "sidebar main main main"
+        "sidebar main main main"
+        "footer footer footer footer"
 }
 
 /* For testing/designing with grid, I'll colour each semantic element to get a feel of the site */
 header {
     background-color: aqua;
-    height: 100px;
+    grid-area: header;
 }
 
 main {
     background-color: red;
-    height: 100px;
+    grid-area: main;
 }
 
 aside {
     background-color: violet;
-    height: 100px;
+    grid-area: sidebar;
 }
 
 footer {
     background-color: orange;
-    height: 100px;
+    grid-area: footer;
 }
