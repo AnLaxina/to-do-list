@@ -7,8 +7,8 @@
 
 @font-face {
     font-family: Inter;
-    font-weight: 150;
-    src: url("../font/Inter-VariableFont_opsz\,wght.ttf");
+    font-weight: 150 bold;
+    src: url("../font/Inter-VariableFont_opsz\,wght.ttf") format("truetype-variations");
 }
 
 /* Full viewport height */
@@ -16,6 +16,7 @@ html,
 body {
     height: 100%;
     font-family: Inter, monospace;
+    font-weight: normal;
 }
 
 body {
@@ -41,9 +42,26 @@ main {
     grid-area: main;
 }
 
+/* Styling related to the sidebar */
 aside {
-    background-color: #C6E7FF;
+    background-color: #FBFBFB;
+    padding: 18px;
     grid-area: sidebar;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-button {
+    text-align: left;
+    background: none;
+}
+
+#logo {
+    margin-bottom: 10px;
 }
 
 footer {
