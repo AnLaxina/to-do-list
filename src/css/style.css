@@ -5,10 +5,17 @@
     #FFDDAE (peach colour)
 */
 
+@font-face {
+    font-family: Inter;
+    font-weight: 150;
+    src: url("../font/Inter-VariableFont_opsz\,wght.ttf");
+}
+
 /* Full viewport height */
 html,
 body {
     height: 100%;
+    font-family: Inter, monospace;
 }
 
 body {
@@ -35,7 +42,7 @@ main {
 }
 
 aside {
-    background-color: violet;
+    background-color: #C6E7FF;
     grid-area: sidebar;
 }
 
