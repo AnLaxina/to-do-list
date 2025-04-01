@@ -1,6 +1,7 @@
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
+    static #addButton = document.querySelector(".add-button");
 
     static loadDom() {
         const htmlContent = `
@@ -11,7 +12,6 @@ export default class SidebarManager {
         <button type="button" class="add-button">Add Project</button>`;
 
         this.#projects.innerHTML = htmlContent;
-
     }
 
 }

@@ -2,7 +2,7 @@ import ToDoListItem from "./js/todo";
 import Project from "./js/project";
 import DateTime from "./js/datetime";
 
-import SidebarManager from "./js/sidebar-manager";
+import SidebarManager from "./js/DOM/sidebar-manager";
 
 import "./css/style.css";
 import "./css/reset.css";
