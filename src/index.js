@@ -1,6 +1,6 @@
-import ToDoListItem from "./todo";
-import Project from "./project";
-import DateTime from "./datetime";
+import ToDoListItem from "./js/todo";
+import Project from "./js/project";
+import DateTime from "./js/datetime";
 
 import "./css/style.css";
 import "./css/reset.css";
