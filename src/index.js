@@ -3,6 +3,7 @@ import Project from "./js/project";
 import DateTime from "./js/datetime";
 
 import SidebarManager from "./js/DOM/sidebar-manager";
+import ModalManager from "./js/DOM/modal-manager";
 
 import "./css/style.css";
 import "./css/reset.css";
@@ -10,6 +11,9 @@ import "./css/reset.css";
 
 // DOM related methods
 SidebarManager.loadDom();
+
+// for Testing, will remove later 
+ModalManager.showAddProjectDialog();
 
 // const listOfToDos = [];
 // // const project = new Project(listOfToDos);
