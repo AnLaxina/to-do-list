@@ -2,20 +2,26 @@ import ToDoListItem from "./js/todo";
 import Project from "./js/project";
 import DateTime from "./js/datetime";
 
+import SidebarManager from "./js/sidebar-manager";
+
 import "./css/style.css";
 import "./css/reset.css";
 
-const listOfToDos = [];
-const project = new Project(listOfToDos);
 
-const todo = new ToDoListItem("cheese", "dog", DateTime.getCurrentDate(), "idk what a priority");
-const todo2 = new ToDoListItem("bacon", "dog", DateTime.getCurrentDate(), "idk what a priority");
+// DOM related methods
+SidebarManager.loadDom();
 
-listOfToDos.push(todo);
-listOfToDos.push(todo2);
+// const listOfToDos = [];
+// // const project = new Project(listOfToDos);
 
-project.viewAllTodos();
+// // const todo = new ToDoListItem("cheese", "dog", DateTime.getCurrentDate(), "idk what a priority");
+// // const todo2 = new ToDoListItem("bacon", "dog", DateTime.getCurrentDate(), "idk what a priority");
 
-console.log("After deleting one ToDo, here are all the ToDo's now:");
-project.deleteTodo(1);
-project.viewAllTodos();
+// // // listOfToDos.push(todo);
+// // // listOfToDos.push(todo2);
+
+// // // project.viewAllTodos();
+
+// // // console.log("After deleting one ToDo, here are all the ToDo's now:");
+// // // project.deleteTodo(1);
+// // // project.viewAllTodos();

@@ -66,6 +66,8 @@ aside {
     border-radius: 10px;
     margin-top: 25px;
     border: 2px solid;
+    width: 50%;
+    align-self: center;
 }
 
 .todo-button:hover,
