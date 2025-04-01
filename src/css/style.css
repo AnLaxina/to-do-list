@@ -1,8 +1,8 @@
 /* Colour Palette:
-    #C6E7FF (baby blue)
-    #D4F6FF (lighter baby blue)
-    #FBFBFB (pretty much white)
-    #FFDDAE (peach colour)
+    #00A9FF (primary blue)
+    #89CFF3 (light blue)
+    #A0E9FF (lighter blue) 
+    #CDF5FD (lightest blue) 
 */
 
 @font-face {
@@ -22,34 +22,31 @@ body {
 body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: 50px 1fr 1fr 50px;
+    grid-template-rows: 50px 1fr 1fr;
     background-color: #C6E7FF;
     grid-template-areas:
         "header header header header"
         "sidebar main main main"
         "sidebar main main main"
-        "footer footer footer footer"
 }
 
 /* For testing/designing with grid, I'll colour each semantic element to get a feel of the site */
 header {
-    background-color: aqua;
+    background-color: #00A9FF;
+    color: white;
+    font-weight: bold;
     grid-area: header;
 }
 
 main {
-    background-color: red;
+    background-color: white;
     grid-area: main;
 }
 
-footer {
-    background-color: orange;
-    grid-area: footer;
-}
 
 /* Styling related to the sidebar */
 aside {
-    background-color: #FBFBFB;
+    background-color: rgb(224, 224, 224);
     padding: 10px;
     grid-area: sidebar;
 }
