@@ -2,11 +2,21 @@
 export default class ModalManager {
     static #addProjectDialog = document.createElement("dialog");
     static #mainNode = document.querySelector("main");
+    // This is for allowing all the necessary modals/dialogs to run ONCE
+    static #initialized = false;
 
+    static intialize() {
+        if (this.#initialized) {
+            console.log("Already initialized!");
+        }
+        else {
+            // If this is the first time, run all the required setup like adding event listeners, etc.
+            this.#populateAddProjectDialog();
+            this.#addDialogToDocument(this.#addProjectDialog);
+        }
+    }
 
     static showAddProjectDialog() {
-        this.#addDialogToDocument(this.#addProjectDialog);
-        this.#populateAddProjectDialog();
         this.#addProjectDialog.showModal();
     }
 
