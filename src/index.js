@@ -11,10 +11,8 @@ import "./css/modal.css";
 
 
 // DOM related methods
-SidebarManager.loadDom();
-SidebarManager.addEventListeners();
-
-ModalManager.intialize();
+SidebarManager.initialize();
+ModalManager.initialize();
 // const listOfToDos = [];
 // // const project = new Project(listOfToDos);
 

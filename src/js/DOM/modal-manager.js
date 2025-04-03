@@ -5,7 +5,7 @@ export default class ModalManager {
     // This is for allowing all the necessary modals/dialogs to run ONCE
     static #initialized = false;
 
-    static intialize() {
+    static initialize() {
         if (this.#initialized) {
             console.log("Already initialized!");
         }
@@ -13,6 +13,8 @@ export default class ModalManager {
             // If this is the first time, run all the required setup like adding event listeners, etc.
             this.#populateAddProjectDialog();
             this.#addDialogToDocument(this.#addProjectDialog);
+
+            this.#initialized = true;
         }
     }
 
