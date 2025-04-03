@@ -11,10 +11,7 @@ import "./css/reset.css";
 
 // DOM related methods
 SidebarManager.loadDom();
-
-// for Testing, will remove later 
-ModalManager.showAddProjectDialog();
-
+SidebarManager.addEventListeners();
 // const listOfToDos = [];
 // // const project = new Project(listOfToDos);
 

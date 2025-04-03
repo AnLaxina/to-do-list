@@ -1,7 +1,7 @@
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
-    static #addButton = document.querySelector(".add-button");
+    static #addButton = undefined;
 
     static loadDom() {
         const htmlContent = `
@@ -12,6 +12,14 @@ export default class SidebarManager {
         <button type="button" class="add-button">Add Project</button>`;
 
         this.#projects.innerHTML = htmlContent;
+        this.#addButton = document.querySelector(".add-button");
+    }
+
+    static addEventListeners() {
+        // Add an event listener to the addButton
+        this.#addButton.addEventListener("click", () => {
+            console.log("Hello tarnished!");
+        })
     }
 
 }
