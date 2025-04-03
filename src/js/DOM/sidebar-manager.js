@@ -1,3 +1,5 @@
+import ModalManager from "./modal-manager";
+
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
@@ -18,7 +20,7 @@ export default class SidebarManager {
     static addEventListeners() {
         // Add an event listener to the addButton
         this.#addButton.addEventListener("click", () => {
-            console.log("Hello tarnished!");
+            ModalManager.showAddProjectDialog();
         })
     }
 

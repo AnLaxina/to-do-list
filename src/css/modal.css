@@ -1,0 +1,50 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.close-modal-button,
+.add-project-button {
+    border-radius: 15px;
+    width: 125px;
+    border: none;
+}
+
+.close-modal-button:hover,
+.add-project-button:hover {
+    background-color: darkgrey;
+    cursor: pointer;
+}
+
+.form-container {
+    padding: 16px;
+}
+
+/* [open] used because if not, the dialog will always be open regardless of its status (open or closed) */
+#add-project-modal[open] {
+    display: flex;
+    padding: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: black 2px solid;
+}
+
+#modal-header {
+    display: flex;
+    box-sizing: border-box;
+    padding: 8px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: dodgerblue;
+    width: 100%;
+}
+
+#modal-header-title {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+}
