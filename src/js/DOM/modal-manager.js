@@ -18,7 +18,7 @@ export default class ModalManager {
         <div class="form-container">
             <form action="#" method="dialog" id="add-project-form">
                 <label for="project-name">Project Name: </label>
-                <input type="text" id="project-name" autocomplete="off" name="project-name" required>
+                <input type="text" id="project-name" autocomplete="off" name="project-name" placeholder="Ex. Shopping List" required>
                 <div class="modal-buttons">
                     <button type="button" class="close-modal-button">Cancel</button>
                     <button type="button" class="add-project-button">Add Project</button>
