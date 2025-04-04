@@ -11,9 +11,10 @@ export default class ModalManager {
         }
         else {
             // If this is the first time, run all the required setup like adding event listeners, etc.
+            // Add all required setup for the `Add Project` Dialog
             this.#populateAddProjectDialog();
             this.#addDialogToDocument(this.#addProjectDialog);
-            this.#addEventListenersButtons();
+            this.#addEventListenersButtons(this.#addProjectDialog);
 
             this.#initialized = true;
         }
@@ -47,10 +48,12 @@ export default class ModalManager {
 
     // Adds event listeners for any button inside the modal. Using event delegation (for flexibility) we detect if there
     // are any buttons inside the modal
-    static #addEventListenersButtons() {
-        const modalButtons = document.querySelector(".modal-buttons");
-        modalButtons.addEventListener("click", (e) => {
-            console.log(e.target.className);
+    // param: For event delegation, we use the parent modal to close that specific one
+    static #addEventListenersButtons(currentModal) {
+        currentModal.addEventListener("click", (e) => {
+            if (e.target.className === "close-modal-button") {
+                currentModal.close();
+            }
         })
     }
 
