@@ -1,5 +1,5 @@
 export default class Project {
-    constructor(listOfToDos) {
+    constructor(listOfToDos = []) {
         this.listOfToDos = listOfToDos;
     }
 

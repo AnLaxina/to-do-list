@@ -13,6 +13,7 @@ export default class ModalManager {
             // If this is the first time, run all the required setup like adding event listeners, etc.
             this.#populateAddProjectDialog();
             this.#addDialogToDocument(this.#addProjectDialog);
+            this.#addEventListenersButtons();
 
             this.#initialized = true;
         }
@@ -43,4 +44,14 @@ export default class ModalManager {
     static #addDialogToDocument(node) {
         this.#mainNode.appendChild(node);
     }
+
+    // Adds event listeners for any button inside the modal. Using event delegation (for flexibility) we detect if there
+    // are any buttons inside the modal
+    static #addEventListenersButtons() {
+        const modalButtons = document.querySelector(".modal-buttons");
+        modalButtons.addEventListener("click", (e) => {
+            console.log(e.target.className);
+        })
+    }
+
 }
