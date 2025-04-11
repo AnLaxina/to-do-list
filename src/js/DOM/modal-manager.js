@@ -55,14 +55,17 @@ export default class ModalManager {
                 currentModal.close();
             }
             else if (e.target.className === "add-project-button") {
-                this.#checkValidInputs();
+                // If an input is filled (valid), then do whatever you want to do (ex. add to project list, etc.)
+                if (this.#checkValidInputs()) {
+                    // TODO: Add functionality to add to project list once an input has been verified
+                }
             }
         })
     }
 
     static #checkValidInputs() {
         const form = document.querySelector("form");
-        form.reportValidity();
+        return form.reportValidity();
     }
 
 }
