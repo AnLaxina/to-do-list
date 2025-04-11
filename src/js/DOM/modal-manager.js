@@ -68,7 +68,7 @@ export default class ModalManager {
                     ProjectManager.createProject(projectName);
                     form.requestSubmit();
                     form.reset();
-                    console.log(`ProjectManager's projects are: ${ProjectManager.listOfProjects}`);
+                    console.log(`ProjectManager's projects are: ${ProjectManager.listProjects()}`);
 
                 }
             }
