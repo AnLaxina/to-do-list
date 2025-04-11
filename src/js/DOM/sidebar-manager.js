@@ -18,8 +18,8 @@ export default class SidebarManager {
 
     static #loadDom() {
         const htmlContent = `
-            <button type="button" class="todo-button">Shopping List</button>
-            <button type="button" class="todo-button">Reading List</button>
+            <button type="button" class="project-button">Shopping List</button>
+            <button type="button" class="project-button">Reading List</button>
         
 
         <button type="button" class="add-button">Add Project</button>`;

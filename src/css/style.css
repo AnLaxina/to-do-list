@@ -51,7 +51,7 @@ aside {
     grid-area: sidebar;
 }
 
-.todo-button {
+.project-button {
     text-align: left;
     background: none;
     border-radius: 5px;
@@ -67,7 +67,7 @@ aside {
     align-self: center;
 }
 
-.todo-button:hover,
+.project-button:hover,
 .add-button:hover {
     background-color: lightgray;
     cursor: pointer;
