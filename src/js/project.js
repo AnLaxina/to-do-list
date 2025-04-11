@@ -1,6 +1,7 @@
 export default class Project {
-    constructor(listOfToDos = []) {
+    constructor(name, listOfToDos = []) {
         this.listOfToDos = listOfToDos;
+        this.name = name;
     }
 
     viewAllTodos() {
