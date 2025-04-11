@@ -54,7 +54,15 @@ export default class ModalManager {
             if (e.target.className === "close-modal-button") {
                 currentModal.close();
             }
+            else if (e.target.className === "add-project-button") {
+                this.#checkValidInputs();
+            }
         })
+    }
+
+    static #checkValidInputs() {
+        const form = document.querySelector("form");
+        form.reportValidity();
     }
 
 }
