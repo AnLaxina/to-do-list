@@ -24,6 +24,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: 50px 1fr 1fr;
     background-color: #C6E7FF;
+    /* This prevents a scroll wheel from appearing */
+    overflow: hidden;
     grid-template-areas:
         "header header header header"
         "sidebar main main main"
@@ -47,7 +49,7 @@ main {
 /* Styling related to the sidebar */
 aside {
     background-color: rgb(224, 224, 224);
-    padding: 10px;
+    padding: 11px;
     grid-area: sidebar;
 }
 
@@ -59,17 +61,19 @@ aside {
 }
 
 .add-button {
-    background: none;
-    border-radius: 10px;
+    background-color: #00A9FF;
+    font-weight: bold;
+    color: white;
     margin-top: 25px;
-    border: 2px solid;
+    border: none;
+    border-radius: 10px;
     width: 50%;
     align-self: center;
 }
 
 .project-button:hover,
 .add-button:hover {
-    background-color: lightgray;
+    background-color: #89CFF3;
     cursor: pointer;
 }
 
@@ -79,6 +83,8 @@ aside {
 
 #projects {
     display: flex;
+    overflow-y: auto;
+    height: 90%;
     flex-direction: column;
     gap: 2px;
 }

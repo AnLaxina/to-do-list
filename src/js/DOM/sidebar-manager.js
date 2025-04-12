@@ -11,13 +11,13 @@ export default class SidebarManager {
             console.log("Sidebar already initialized!");
         }
         else {
-            this.#displayProjectsDOM();
+            this.displayProjectsDOM();
             this.#addEventListeners();
         }
     }
 
     // For each project, create a "button" that corresponds with a paricular name;
-    static #displayProjectsDOM() {
+    static displayProjectsDOM() {
         let htmlContent = " ";
         for (const project of ProjectManager.listOfProjects) {
             htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
@@ -33,7 +33,6 @@ export default class SidebarManager {
         this.#projects.addEventListener("click", (e) => {
             if (e.target.className === "add-button") {
                 ModalManager.showAddProjectDialog();
-                ProjectManager.displayProjectsDOM();
             }
         })
     }

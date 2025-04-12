@@ -1,4 +1,5 @@
 import ProjectManager from "../project-manager";
+import SidebarManager from "./sidebar-manager";
 
 // This is for creating pop-up windows or dialogs.
 export default class ModalManager {
@@ -66,6 +67,8 @@ export default class ModalManager {
                     // Once we retrieve the values (like the project name for example, we can use the ProjectManager)
                     ProjectManager.createProject(projectName);
                     form.requestSubmit();
+                    // After submission, re-populate the sidebar
+                    SidebarManager.displayProjectsDOM();
                     form.reset();
 
                 }
