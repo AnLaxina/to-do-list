@@ -63,12 +63,10 @@ export default class ModalManager {
                     // TODO: Add functionality to add to project list once an input has been verified
                     const formData = this.#getInputData(form);
                     const projectName = [...formData.values()];
-
                     // Once we retrieve the values (like the project name for example, we can use the ProjectManager)
                     ProjectManager.createProject(projectName);
                     form.requestSubmit();
                     form.reset();
-                    console.log(`ProjectManager's projects are: ${ProjectManager.listProjects()}`);
 
                 }
             }
