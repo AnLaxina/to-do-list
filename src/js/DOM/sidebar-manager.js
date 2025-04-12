@@ -1,4 +1,5 @@
 import ModalManager from "./modal-manager";
+import ProjectManager from "../project-manager";
 
 export default class SidebarManager {
 
@@ -17,12 +18,7 @@ export default class SidebarManager {
     }
 
     static #loadDom() {
-        const htmlContent = `
-            <button type="button" class="project-button">Shopping List</button>
-            <button type="button" class="project-button">Reading List</button>
-        
-
-        <button type="button" class="add-button">Add Project</button>`;
+        const htmlContent = `${ProjectManager.displayObjectsDOM()}<button type="button" class="add-button">Add Project</button>`;
 
         this.#projects.innerHTML = htmlContent;
         this.#addButton = document.querySelector(".add-button");

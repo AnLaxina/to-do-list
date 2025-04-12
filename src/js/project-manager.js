@@ -2,7 +2,8 @@ import Project from "./project";
 
 export default class ProjectManager {
 
-    static listOfProjects = []
+    // For now, let's put in example projects in this list to populate the sidebar
+    static listOfProjects = [new Project("Shopping List"), new Project("Reading List")];
 
     static createProject(projectName) {
         this.listOfProjects.push(new Project(projectName));
@@ -12,5 +13,14 @@ export default class ProjectManager {
         for (const project of this.listOfProjects) {
             console.log(project.name);
         }
+    }
+
+    // For each project, create a "button" that corresponds with a paricular name;
+    static displayObjectsDOM() {
+        let htmlContent = " ";
+        for (const project of this.listOfProjects) {
+            htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
+        }
+        return htmlContent;
     }
 }
