@@ -4,7 +4,6 @@ import ProjectManager from "../project-manager";
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
-    static #addButton = undefined;
     static #intialized = false;
 
     static initialize() {
@@ -12,22 +11,30 @@ export default class SidebarManager {
             console.log("Sidebar already initialized!");
         }
         else {
-            this.#loadDom();
+            this.#displayProjectsDOM();
             this.#addEventListeners();
         }
     }
 
-    static #loadDom() {
-        const htmlContent = `${ProjectManager.displayObjectsDOM()}<button type="button" class="add-button">Add Project</button>`;
-
+    // For each project, create a "button" that corresponds with a paricular name;
+    static #displayProjectsDOM() {
+        let htmlContent = " ";
+        for (const project of ProjectManager.listOfProjects) {
+            htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
+        }
+        // At the end, add an 'add button'
+        htmlContent += `<button type="button" class="add-button">Add Project</button>`
         this.#projects.innerHTML = htmlContent;
-        this.#addButton = document.querySelector(".add-button");
     }
 
     static #addEventListeners() {
-        // Add an event listener to the addButton
-        this.#addButton.addEventListener("click", () => {
-            ModalManager.showAddProjectDialog();
+        // Use event delegation so that any thing that is clicked/pressed under
+        // the projects sidebar can be changed/added
+        this.#projects.addEventListener("click", (e) => {
+            if (e.target.className === "add-button") {
+                ModalManager.showAddProjectDialog();
+                ProjectManager.displayProjectsDOM();
+            }
         })
     }
 

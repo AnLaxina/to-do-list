@@ -14,13 +14,4 @@ export default class ProjectManager {
             console.log(project.name);
         }
     }
-
-    // For each project, create a "button" that corresponds with a paricular name;
-    static displayObjectsDOM() {
-        let htmlContent = " ";
-        for (const project of this.listOfProjects) {
-            htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
-        }
-        return htmlContent;
-    }
 }
