@@ -22,6 +22,11 @@ export default class SidebarManager {
         for (const project of ProjectManager.listOfProjects) {
             htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
         }
+
+        // <!-- For testing, adding a project-button with a delete button -->
+        htmlContent += `<div type="button" class="project-button">Chicken Nugget <button type="button"
+        class="delete-project">x</button></div>`;
+
         // At the end, add an 'add button'
         htmlContent += `<button type="button" class="add-button">Add Project</button>`
         this.#projects.innerHTML = htmlContent;
