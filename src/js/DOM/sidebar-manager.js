@@ -1,9 +1,12 @@
 import ModalManager from "./modal-manager";
 import ProjectManager from "../project-manager";
 
+import SidebarLogo from "../../img/to-do-list.png";
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
+    static #logo = document.querySelector("#logo");
+
     static #intialized = false;
 
     static initialize() {
@@ -13,7 +16,16 @@ export default class SidebarManager {
         else {
             this.displayProjectsDOM();
             this.#addEventListeners();
+            this.#displayImages();
         }
+    }
+
+    static #displayImages() {
+        const logoImage = document.createElement("img");
+        logoImage.src = SidebarLogo;
+        logoImage.alt = "A logo of the to-do list application";
+        logoImage.id = "logo-image";
+        this.#logo.prepend(logoImage);
     }
 
     // For each project, create a "button" that corresponds with a paricular name;
