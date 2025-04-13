@@ -20,12 +20,13 @@ export default class SidebarManager {
     static displayProjectsDOM() {
         let htmlContent = " ";
         for (const project of ProjectManager.listOfProjects) {
-            htmlContent += `<button type="button" class="project-button">${project.name}</button>`;
+            htmlContent += `<div type="button" class="project-button">${project.name}<button type="button"
+        class="project-button delete-project">x</button></div>`;
         }
 
         // <!-- For testing, adding a project-button with a delete button -->
-        htmlContent += `<div type="button" class="project-button">Chicken Nugget <button type="button"
-        class="delete-project">x</button></div>`;
+        // htmlContent += `<div type="button" class="project-button">Chicken Nugget <button type="button"
+        // class="delete-project">x</button></div>`;
 
         // At the end, add an 'add button'
         htmlContent += `<button type="button" class="add-button">Add Project</button>`
@@ -35,11 +36,36 @@ export default class SidebarManager {
     static #addEventListeners() {
         // Use event delegation so that any thing that is clicked/pressed under
         // the projects sidebar can be changed/added
+
+        // Click events
         this.#projects.addEventListener("click", (e) => {
             if (e.target.className === "add-button") {
                 ModalManager.showAddProjectDialog();
             }
         })
+
+        this.#projects.addEventListener("mouseover", (e) => {
+            if (e.target.className === "project-button") {
+                this.#showDeleteProjectButton(e.target);
+            }
+        })
+
+        this.#projects.addEventListener("mouseout", (e) => {
+            if (e.target.className === "project-button") {
+                this.#removeDeleteProjectButton(e.target);
+            }
+        })
+    }
+
+    static #showDeleteProjectButton(projectButton) {
+        const deleteProjectButton = projectButton.querySelector("button.delete-project");
+        deleteProjectButton.style.setProperty("visibility", "visible");
+
+    }
+
+    static #removeDeleteProjectButton(projectButton) {
+        const deleteProjectButton = projectButton.querySelector("button.delete-project");
+        deleteProjectButton.style.setProperty("visibility", "hidden");
     }
 
 }
