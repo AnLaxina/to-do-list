@@ -44,17 +44,17 @@ export default class SidebarManager {
             }
         })
 
-        this.#projects.addEventListener("mouseover", (e) => {
+        this.#projects.addEventListener("mouseenter", (e) => {
             if (e.target.className === "project-button") {
                 this.#showDeleteProjectButton(e.target);
             }
-        })
+        }, true)
 
-        this.#projects.addEventListener("mouseout", (e) => {
+        this.#projects.addEventListener("mouseleave", (e) => {
             if (e.target.className === "project-button") {
                 this.#removeDeleteProjectButton(e.target);
             }
-        })
+        }, true)
     }
 
     static #showDeleteProjectButton(projectButton) {

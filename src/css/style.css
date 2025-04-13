@@ -104,5 +104,5 @@ aside {
     overflow-y: auto;
     height: 90%;
     flex-direction: column;
-    gap: 2px;
+    /* gap: 2px; */
 }
