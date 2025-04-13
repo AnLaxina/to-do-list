@@ -21,7 +21,7 @@ export default class SidebarManager {
         let htmlContent = " ";
         for (const project of ProjectManager.listOfProjects) {
             htmlContent += `<div type="button" class="project-button">${project.name}<button type="button"
-        class="project-button delete-project">x</button></div>`;
+        class="delete-project">x</button></div>`;
         }
 
         // <!-- For testing, adding a project-button with a delete button -->
@@ -33,6 +33,10 @@ export default class SidebarManager {
         this.#projects.innerHTML = htmlContent;
     }
 
+    static #removeProjectDOM() {
+
+    }
+
     static #addEventListeners() {
         // Use event delegation so that any thing that is clicked/pressed under
         // the projects sidebar can be changed/added
@@ -42,8 +46,13 @@ export default class SidebarManager {
             if (e.target.className === "add-button") {
                 ModalManager.showAddProjectDialog();
             }
+            else if (e.target.className === "delete-project") {
+                console.log("Hello! The 'x' button was clicked!");
+            }
         })
 
+        // Mouse "hovered" events. Using mouseenter & mouseleave as they do not bubble and don't cause the flickering
+        // 'x' issue.
         this.#projects.addEventListener("mouseenter", (e) => {
             if (e.target.className === "project-button") {
                 this.#showDeleteProjectButton(e.target);
