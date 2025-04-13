@@ -14,4 +14,8 @@ export default class ProjectManager {
             console.log(project.name);
         }
     }
+
+    static deleteProject(index) {
+        this.listOfProjects.splice(index, 1);
+    }
 }
