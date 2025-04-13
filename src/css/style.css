@@ -103,7 +103,15 @@ aside {
 }
 
 #logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
     margin-bottom: 10px;
+}
+
+#logo-image {
+    width: 32px;
+    height: 32px;
 }
 
 #projects {
