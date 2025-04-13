@@ -20,8 +20,8 @@ export default class SidebarManager {
     static displayProjectsDOM() {
         let htmlContent = " ";
         for (let i = 0; i < ProjectManager.listOfProjects.length; i++) {
-            htmlContent += `<div type="button" class="project-button" data-index=${i}>${ProjectManager.listOfProjects[i].name}<button type="button"
-        class="delete-project">x</button></div>`;
+            htmlContent += `<div type="button" class="project-button">${ProjectManager.listOfProjects[i].name}<button type="button"
+        class="delete-project" delete-index=${i}>x</button></div>`;
         }
 
         // At the end, add an 'add button'
@@ -29,8 +29,9 @@ export default class SidebarManager {
         this.#projects.innerHTML = htmlContent;
     }
 
-    static #removeProjectDOM() {
-
+    static #removeProjectDOM(index) {
+        ProjectManager.deleteProject(index);
+        this.displayProjectsDOM();
     }
 
     static #addEventListeners() {
@@ -43,7 +44,8 @@ export default class SidebarManager {
                 ModalManager.showAddProjectDialog();
             }
             else if (e.target.className === "delete-project") {
-                console.log("Hello! The 'x' button was clicked!");
+                let deleteIndex = e.target.getAttribute("delete-index");
+                this.#removeProjectDOM(deleteIndex);
             }
         })
 
