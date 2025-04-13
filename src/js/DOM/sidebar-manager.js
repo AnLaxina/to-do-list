@@ -19,14 +19,10 @@ export default class SidebarManager {
     // For each project, create a "button" that corresponds with a paricular name;
     static displayProjectsDOM() {
         let htmlContent = " ";
-        for (const project of ProjectManager.listOfProjects) {
-            htmlContent += `<div type="button" class="project-button">${project.name}<button type="button"
+        for (let i = 0; i < ProjectManager.listOfProjects.length; i++) {
+            htmlContent += `<div type="button" class="project-button" data-index=${i}>${ProjectManager.listOfProjects[i].name}<button type="button"
         class="delete-project">x</button></div>`;
         }
-
-        // <!-- For testing, adding a project-button with a delete button -->
-        // htmlContent += `<div type="button" class="project-button">Chicken Nugget <button type="button"
-        // class="delete-project">x</button></div>`;
 
         // At the end, add an 'add button'
         htmlContent += `<button type="button" class="add-button">Add Project</button>`
