@@ -2,4 +2,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: left;
+    padding: 18px;
+}
+
+.to-dos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.to-do-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }

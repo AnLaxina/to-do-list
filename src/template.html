@@ -13,16 +13,34 @@
     </header>
     <main>
         <h2 class="project-name">Project Name</h2>
-        <div class="to-do-item">To-do 1</div>
-        <div class="to-do-item">To-do 2</div>
-        <div class="to-do-item">To-do 3</div>
-        <div class="to-do-item">To-do 4</div>
-        <div class="completed-to-do" style="visibility: shown;">
-            <h3>Completed</h3>
-            <div class="to-do-item">To-do 5</div>
+        <div class="to-dos">
+            <div class="to-do-item">
+                <input type="checkbox" name="to-do-1" id="to-do-1">
+                <label for="to-do-1">To-do 1</label>
+            </div>
+            <div class="to-do-item">
+                <input type="checkbox" name="to-do-2" id="to-do-2">
+                <label for="to-do-2">To-do 2</label>
+            </div>
+            <div class="to-do-item">
+                <input type="checkbox" name="to-do-3" id="to-do-3">
+                <label for="to-do-3">To-do 3</label>
+            </div>
+            <div class="to-do-item">
+                <input type="checkbox" name="to-do-4" id="to-do-4">
+                <label for="to-do-4">To-do 4</label>
+            </div>
+
+            <div class="completed-to-do" style="visibility: shown;">
+                <h3>Completed</h3>
+                <div class="to-do-item">
+                    <input type="checkbox" name="to-do-5" id="to-do-5">
+                    <label for="to-do-5">To-do 5</label>
+                </div>
+            </div>
         </div>
 
-        <button class="add-to-do">Add To-Do</button>
+        <button class="add-to-do" type="button">Add To-Do</button>
     </main>
     <aside>
         <h1 id="logo">To-Do Time</h1>
