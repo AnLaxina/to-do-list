@@ -8,6 +8,7 @@ import ModalManager from "./js/DOM/modal-manager";
 import "./css/style.css";
 import "./css/reset.css";
 import "./css/modal.css";
+import "./css/main-section.css";
 
 
 // DOM related methods
