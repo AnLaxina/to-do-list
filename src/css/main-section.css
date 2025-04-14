@@ -8,6 +8,7 @@ main {
 .to-dos {
     display: flex;
     flex-direction: column;
+    height: 82%;
     gap: 8px;
 }
 
@@ -15,4 +16,25 @@ main {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+/* input[name*="to-do-"]:checked {
+    outline: 2px solid deeppink;
+} */
+
+.add-to-do {
+    background-color: #00A9FF;
+    font-weight: bold;
+    color: white;
+    margin-top: 25px;
+    border: none;
+    border-radius: 10px;
+    width: 15%;
+    align-self: center;
+    padding: 4px;
+}
+
+.add-to-do:hover {
+    background-color: #1385bece;
+    cursor: pointer;
 }
