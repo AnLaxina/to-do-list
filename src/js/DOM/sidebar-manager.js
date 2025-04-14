@@ -5,6 +5,7 @@ import SidebarLogo from "../../img/to-do-list.png";
 export default class SidebarManager {
 
     static #projects = document.querySelector("#projects");
+    static #aside = document.querySelector("aside");
     static #logo = document.querySelector("#logo");
 
     static #intialized = false;
@@ -37,7 +38,7 @@ export default class SidebarManager {
         }
 
         // At the end, add an 'add button'
-        htmlContent += `<button type="button" class="add-button">Add Project</button>`
+        // htmlContent += ``
         this.#projects.innerHTML = htmlContent;
     }
 
@@ -51,7 +52,7 @@ export default class SidebarManager {
         // the projects sidebar can be changed/added
 
         // Click events
-        this.#projects.addEventListener("click", (e) => {
+        this.#aside.addEventListener("click", (e) => {
             if (e.target.className === "add-button") {
                 ModalManager.showAddProjectDialog();
             }

@@ -48,6 +48,9 @@ main {
 
 /* Styling related to the sidebar */
 aside {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
     background-color: rgb(224, 224, 224);
     padding: 10px;
     grid-area: sidebar;
@@ -118,7 +121,7 @@ aside {
 #projects {
     display: flex;
     overflow-y: auto;
-    height: 90%;
+    height: 75%;
     flex-direction: column;
     /* gap: 2px; */
 }
