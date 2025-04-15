@@ -18,9 +18,10 @@ main {
     gap: 6px;
 }
 
-/* input[name*="to-do-"]:checked {
-    outline: 2px solid deeppink;
-} */
+input[name*="to-do-"]:checked+label[for*="to-do"] {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
 .add-to-do {
     background-color: #00A9FF;
