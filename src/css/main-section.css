@@ -25,11 +25,12 @@ main {
 .add-to-do {
     background-color: #00A9FF;
     font-weight: bold;
+    flex: 1 0 auto;
     color: white;
     margin-top: 25px;
     border: none;
     border-radius: 10px;
-    width: 15%;
+    width: 125px;
     align-self: center;
     padding: 4px;
 }
