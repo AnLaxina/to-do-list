@@ -9,6 +9,7 @@ export default class SidebarManager {
     static #logo = document.querySelector("#logo");
 
     static #intialized = false;
+    static selectedProject = "";
 
     static initialize() {
         if (this.#intialized) {
@@ -59,11 +60,15 @@ export default class SidebarManager {
                 this.#removeProjectDOM(deleteIndex);
             }
             else if (e.target.tagName === "P") {
-                console.log(`The clicked on project is: ${e.target.textContent}`);
+                this.selectedProject = e.target.textContent;
+                console.log(`The clicked on project is: ${this.selectedProject}`);
             }
             else if (e.target.className === "project-button") {
+                // This essentially removes the 'x' (the delete button) at the end of the textContent string
+                // By default, retrieving the text content of this div gives: "{projectName}x"
                 let divTextContent = e.target.textContent.substring(0, e.target.textContent.length - 1);
-                console.log(`Clicking the project div, the project is: ${divTextContent}`);
+                this.selectedProject = divTextContent;
+                console.log(`From the div, selectedProject is: ${this.selectedProject}`);
             }
         })
 
