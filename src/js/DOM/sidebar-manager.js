@@ -33,12 +33,10 @@ export default class SidebarManager {
     static displayProjectsDOM() {
         let htmlContent = " ";
         for (let i = 0; i < ProjectManager.listOfProjects.length; i++) {
-            htmlContent += `<div type="button" class="project-button">${ProjectManager.listOfProjects[i].name}<button type="button"
+            htmlContent += `<div class="project-button"><p>${ProjectManager.listOfProjects[i].name}</p><button type="button"
         class="delete-project" delete-index=${i}>x</button></div>`;
         }
 
-        // At the end, add an 'add button'
-        // htmlContent += ``
         this.#projects.innerHTML = htmlContent;
     }
 
@@ -59,6 +57,13 @@ export default class SidebarManager {
             else if (e.target.className === "delete-project") {
                 let deleteIndex = e.target.getAttribute("delete-index");
                 this.#removeProjectDOM(deleteIndex);
+            }
+            else if (e.target.tagName === "P") {
+                console.log(`The clicked on project is: ${e.target.textContent}`);
+            }
+            else if (e.target.className === "project-button") {
+                let divTextContent = e.target.textContent.substring(0, e.target.textContent.length - 1);
+                console.log(`Clicking the project div, the project is: ${divTextContent}`);
             }
         })
 
