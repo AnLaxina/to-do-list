@@ -1,3 +1,5 @@
+import ToDo from "./todo.js";
+
 export default class Project {
     constructor(name, listOfToDos = []) {
         this.listOfToDos = listOfToDos;
@@ -31,5 +33,9 @@ export default class Project {
 
     editPriority(index, priority) {
         this.listOfToDos[index].priority = priority;
+    }
+
+    addToDo(newToDo = new ToDo("New Todo", "New Description", "Today", "Urgent")) {
+        this.listOfToDos.push(newToDo);
     }
 }
