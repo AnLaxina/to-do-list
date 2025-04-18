@@ -34,8 +34,8 @@ export default class SidebarManager {
     static displayProjectsDOM() {
         let htmlContent = " ";
         for (let i = 0; i < ProjectManager.listOfProjects.length; i++) {
-            htmlContent += `<div class="project-button"><p>${ProjectManager.listOfProjects[i].name}</p><button type="button"
-        class="delete-project" delete-index=${i}>x</button></div>`;
+            htmlContent += `<div class="project-button" data-delete-index=${i}><p>${ProjectManager.listOfProjects[i].name}</p><button type="button"
+        class="delete-project">x</button></div>`;
         }
 
         this.#projects.innerHTML = htmlContent;
@@ -56,19 +56,23 @@ export default class SidebarManager {
                 ModalManager.showAddProjectDialog();
             }
             else if (e.target.className === "delete-project") {
-                let deleteIndex = e.target.getAttribute("delete-index");
+                const parent = e.target.closest(".project-button");
+                const deleteIndex = parent?.dataset.deleteIndex;
                 this.#removeProjectDOM(deleteIndex);
             }
             else if (e.target.tagName === "P") {
+                const parent = e.target.closest(".project-button");
+                const deleteIndex = parent?.dataset.deleteIndex;
                 this.selectedProject = e.target.textContent;
-                console.log(`The clicked on project is: ${this.selectedProject}`);
+                console.log(`The clicked on project is: ${this.selectedProject}, and the delete-index is ${deleteIndex}`);
             }
             else if (e.target.className === "project-button") {
                 // This essentially removes the 'x' (the delete button) at the end of the textContent string
                 // By default, retrieving the text content of this div gives: "{projectName}x"
-                let divTextContent = e.target.textContent.substring(0, e.target.textContent.length - 1);
-                this.selectedProject = divTextContent;
-                console.log(`From the div, selectedProject is: ${this.selectedProject}`);
+                const deleteIndex = e.target.dataset.deleteIndex;
+                const title = e.target.textContent.substring(0, e.target.textContent.length - 1);
+                this.selectedProject = title;
+                console.log(`From the div, selectedProject is: ${this.selectedProject}, and the delete-index is ${deleteIndex}`);
             }
         })
 
