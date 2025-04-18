@@ -7,7 +7,7 @@ export default class Project {
     }
 
     viewAllTodos() {
-        console.log("List of All To-Do Items:");
+        console.log(`List of All To-Do Items: for ${this.name}`);
         for (const toDo of this.listOfToDos) {
             // For now let's just print the title and duedate to the console
             console.log(`${toDo.title} - Due Date: ${toDo.dueDate}`)

@@ -9,7 +9,10 @@ export default class SidebarManager {
     static #logo = document.querySelector("#logo");
 
     static #intialized = false;
-    static selectedProject = "";
+
+    // By default, let's make it the first one on the sidebar (in this case, Shopping List)
+    static selectedProjectTitle = ProjectManager.listOfProjects[0];
+    static selectedProjectIndex = 0;
 
     static initialize() {
         if (this.#intialized) {
@@ -64,7 +67,7 @@ export default class SidebarManager {
                 const parent = e.target.closest(".project-button");
                 const deleteIndex = parent?.dataset.deleteIndex;
                 this.selectedProject = e.target.textContent;
-                console.log(`The clicked on project is: ${this.selectedProject}, and the delete-index is ${deleteIndex}`);
+                this.#testToDoProjects(deleteIndex);
             }
             else if (e.target.className === "project-button") {
                 // This essentially removes the 'x' (the delete button) at the end of the textContent string
@@ -72,7 +75,7 @@ export default class SidebarManager {
                 const deleteIndex = e.target.dataset.deleteIndex;
                 const title = e.target.textContent.substring(0, e.target.textContent.length - 1);
                 this.selectedProject = title;
-                console.log(`From the div, selectedProject is: ${this.selectedProject}, and the delete-index is ${deleteIndex}`);
+                this.#testToDoProjects(deleteIndex);
             }
         })
 
@@ -100,6 +103,12 @@ export default class SidebarManager {
     static #removeDeleteProjectButton(projectButton) {
         const deleteProjectButton = projectButton.querySelector("button.delete-project");
         deleteProjectButton.style.setProperty("visibility", "hidden");
+    }
+
+    // This is for testing adding Todo's etc.
+    static #testToDoProjects(deleteIndex) {
+        ProjectManager.addToDos(deleteIndex);
+        ProjectManager.listOfProjects[deleteIndex].viewAllTodos();
     }
 
 }

@@ -28,7 +28,7 @@ export default class ProjectManager {
     // All it does is add a bunch of to-do's with the name chicken lol
     static addToDos(projectIndex) {
         for (let i = 0; i < 5; i++) {
-            this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`));
+            this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
         }
     }
 }

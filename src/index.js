@@ -15,9 +15,3 @@ import "./css/main-section.css";
 SidebarManager.initialize();
 ModalManager.initialize();
 MainSectionManager.initialize();
-
-// Testing addToDo
-const coolProject = new Project("Cool Project!");
-coolProject.addToDo();
-coolProject.addToDo(new ToDo("Cheese Dog", "Cool Description", "Now", "Urgent"));
-coolProject.viewAllTodos();
