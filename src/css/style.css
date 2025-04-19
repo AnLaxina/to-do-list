@@ -88,6 +88,10 @@ aside {
     background-color: lightgray;
 }
 
+.project-button.highlighted {
+    background-color: rgb(175, 175, 175);
+}
+
 .add-button:hover {
     background-color: #1385bece;
 }

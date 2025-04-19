@@ -22,6 +22,9 @@ export default class SidebarManager {
             this.displayProjectsDOM();
             this.#addEventListeners();
             this.#displayImages();
+            // From the get-go, the first item in the project list will be the one that's highlighted
+            const selectedProjectDiv = document.querySelector(".project-button");
+            this.#highlightSelectedProject(selectedProjectDiv);
         }
     }
 
@@ -65,6 +68,7 @@ export default class SidebarManager {
             }
             else if (e.target.tagName === "P") {
                 const parent = e.target.closest(".project-button");
+                this.#highlightSelectedProject(parent);
                 const deleteIndex = parent?.dataset.deleteIndex;
                 this.selectedProject = e.target.textContent;
                 this.#testToDoProjects(deleteIndex);
@@ -73,6 +77,7 @@ export default class SidebarManager {
                 // This essentially removes the 'x' (the delete button) at the end of the textContent string
                 // By default, retrieving the text content of this div gives: "{projectName}x"
                 const deleteIndex = e.target.dataset.deleteIndex;
+                this.#highlightSelectedProject(e.target);
                 const title = e.target.textContent.substring(0, e.target.textContent.length - 1);
                 this.selectedProject = title;
                 this.#testToDoProjects(deleteIndex);
@@ -82,13 +87,13 @@ export default class SidebarManager {
         // Mouse "hovered" events. Using mouseenter & mouseleave as they do not bubble and don't cause the flickering
         // 'x' issue.
         this.#projects.addEventListener("mouseenter", (e) => {
-            if (e.target.className === "project-button") {
+            if (e.target.className === "project-button" || e.target.className === "project-button highlighted") {
                 this.#showDeleteProjectButton(e.target);
             }
         }, true)
 
         this.#projects.addEventListener("mouseleave", (e) => {
-            if (e.target.className === "project-button") {
+            if (e.target.className === "project-button" || e.target.className === "project-button highlighted") {
                 this.#removeDeleteProjectButton(e.target);
             }
         }, true)
@@ -109,6 +114,11 @@ export default class SidebarManager {
     static #testToDoProjects(deleteIndex) {
         ProjectManager.addToDos(deleteIndex);
         ProjectManager.listOfProjects[deleteIndex].viewAllTodos();
+    }
+
+    // TODO: Add way to keep sidebar buttons highlighted based on the selected one, then make the rest to normal
+    static #highlightSelectedProject(parent) {
+        parent.classList.add("highlighted");
     }
 
 }
