@@ -21,14 +21,17 @@ export default class ProjectManager {
     }
 
     static getToDoList(projectIndex) {
-        return listOfProjects[projectIndex].listOfToDos;
+        return this.listOfProjects[projectIndex].listOfToDos;
     }
 
     // This method may or may not be for testing,
     // All it does is add a bunch of to-do's with the name chicken lol
     static addToDos(projectIndex) {
-        for (let i = 0; i < 5; i++) {
-            this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
+        // If there has not been any to-do's then add some
+        if (this.getToDoList(projectIndex).length === 0) {
+            for (let i = 0; i < 5; i++) {
+                this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
+            }
         }
     }
 }
