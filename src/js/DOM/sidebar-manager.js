@@ -73,6 +73,7 @@ export default class SidebarManager {
                 const deleteIndex = parent?.dataset.deleteIndex;
                 this.selectedProject = e.target.textContent;
                 this.#testToDoProjects(deleteIndex);
+                MainSectionManager.initialize(deleteIndex);
             }
             else if (e.target.className === "project-button") {
                 // This essentially removes the 'x' (the delete button) at the end of the textContent string
@@ -118,7 +119,6 @@ export default class SidebarManager {
         ProjectManager.listOfProjects[deleteIndex].viewAllTodos();
     }
 
-    // TODO: Add way to keep sidebar buttons highlighted based on the selected one, then make the rest to normal
     static #highlightSelectedProject(parent) {
         const allProjects = document.querySelectorAll(".project-button");
         for (const project of allProjects) {
