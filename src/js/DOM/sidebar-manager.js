@@ -1,5 +1,6 @@
 import ModalManager from "./modal-manager";
 import ProjectManager from "../project-manager";
+import MainSectionManager from "./main-section-manager";
 
 import SidebarLogo from "../../img/to-do-list.png";
 export default class SidebarManager {
@@ -81,6 +82,7 @@ export default class SidebarManager {
                 const title = e.target.textContent.substring(0, e.target.textContent.length - 1);
                 this.selectedProject = title;
                 this.#testToDoProjects(deleteIndex);
+                MainSectionManager.initialize(deleteIndex);
             }
         })
 
