@@ -120,6 +120,10 @@ export default class SidebarManager {
 
     // TODO: Add way to keep sidebar buttons highlighted based on the selected one, then make the rest to normal
     static #highlightSelectedProject(parent) {
+        const allProjects = document.querySelectorAll(".project-button");
+        for (const project of allProjects) {
+            project.classList.remove("highlighted");
+        }
         parent.classList.add("highlighted");
     }
 
