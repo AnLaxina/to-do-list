@@ -18,6 +18,7 @@ export default class ModalManager {
             this.#populateAddProjectDialog();
             this.#addDialogToDocument(this.#addProjectDialog);
             this.#addEventListenersButtons(this.#addProjectDialog);
+            this.#addKeyboardEvents(this.#addProjectDialog);
 
             this.#initialized = true;
         }
@@ -58,22 +59,37 @@ export default class ModalManager {
                 currentModal.close();
             }
             else if (e.target.className === "add-project-button") {
-                const form = currentModal.querySelector("form");
-                // If an input is filled (valid), then do whatever you want to do (ex. add to project list, etc.)
-                if (form.reportValidity()) {
-                    // TODO: Add functionality to add to project list once an input has been verified
-                    const formData = this.#getInputData(form);
-                    const projectName = [...formData.values()];
-                    // Once we retrieve the values (like the project name for example, we can use the ProjectManager)
-                    ProjectManager.createProject(projectName);
-                    form.requestSubmit();
-                    // After submission, re-populate the sidebar
-                    SidebarManager.displayProjectsDOM();
-                    form.reset();
-
-                }
+                this.#addProject(currentModal);
             }
         })
+    }
+
+    static #addKeyboardEvents(currentModal) {
+        const form = currentModal.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            // While it works without e.preventDefault(), it's a failsafe in case some browsers mess up the
+            // modals
+            e.preventDefault();
+            this.#addProject(currentModal);
+        })
+    }
+
+    static #addProject(currentModal) {
+        const form = currentModal.querySelector("form");
+        // If an input is filled (valid), then do whatever you want to do (ex. add to project list, etc.)
+        if (form.reportValidity()) {
+            // TODO: Add functionality to add to project list once an input has been verified
+            const formData = this.#getInputData(form);
+            const projectName = [...formData.values()];
+            // Once we retrieve the values (like the project name for example, we can use the ProjectManager)
+            ProjectManager.createProject(projectName);
+            // After submission, re-populate the sidebar
+            SidebarManager.displayProjectsDOM();
+            form.reset();
+            currentModal.close();
+
+        }
     }
 
     static #getInputData(currentModalForm) {
