@@ -1,4 +1,6 @@
 import ProjectManager from "../project-manager";
+// For testing the newly installed data-fns package
+import { format, formatDistanceToNow } from "date-fns";
 
 export default class MainSectionManager {
     static mainSection = document.querySelector("main");
@@ -53,7 +55,8 @@ export default class MainSectionManager {
         // Again, use event delegation here
         this.mainSection.addEventListener("click", (e) => {
             if (e.target.className === "add-to-do") {
-                console.log("I ate a chicken wing!");
+                const formattedTimeNow = formatDistanceToNow(new Date(), { addSuffix: true, includeSeconds: true });
+                console.log(`I ate a chicken wing ${formattedTimeNow}`);
             }
         })
     }
