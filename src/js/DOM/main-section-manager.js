@@ -17,6 +17,7 @@ export default class MainSectionManager {
             // For now, let's just do the title
             this.#loadProjectTitleDOM(projectIndex);
         }
+        this.#addClickEvents();
     }
 
     static #loadProjectTitleDOM(projectIndex) {
@@ -46,5 +47,14 @@ export default class MainSectionManager {
         })
 
 
+    }
+
+    static #addClickEvents() {
+        // Again, use event delegation here
+        this.mainSection.addEventListener("click", (e) => {
+            if (e.target.className === "add-to-do") {
+                console.log("I ate a chicken wing!");
+            }
+        })
     }
 }
