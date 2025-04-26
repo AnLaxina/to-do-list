@@ -37,7 +37,7 @@ export default class ModalManager {
         const dialog = clone.querySelector("dialog");
 
         parentToAdd.appendChild(dialog);
-        dialog.show();
+        dialog.showModal();
     }
 
     static #populateAddProjectDialog() {

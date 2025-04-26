@@ -48,16 +48,12 @@ export default class MainSectionManager {
 
             this.#toDoSection.append(divNode);
         })
-
-
     }
 
     static #addClickEvents() {
         // Again, use event delegation here
         this.mainSection.addEventListener("click", (e) => {
             if (e.target.className === "add-to-do") {
-                const formattedTimeNow = formatDistanceToNow(new Date(), { addSuffix: true, includeSeconds: true });
-                console.log(`I ate a chicken wing ${formattedTimeNow}`);
                 ModalManager.showAddTodoDialog(this.mainSection);
             }
         })

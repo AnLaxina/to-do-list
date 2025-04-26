@@ -45,8 +45,8 @@
         <!-- For the "Add To-Do" modal, I'll use templates this time as it looks EASIER -->
         <template id="add-todo-template">
             <dialog id="add-todo-modal">
-                <header>
-                    <h3>Add a To-Do</h3>
+                <header id="modal-header">
+                    <h3 id="modal-header-title">Add a To-Do</h3>
                 </header>
                 <div class="form-container">
                     <form id="add-todo-form" method="dialog">
@@ -63,7 +63,7 @@
 
                         <div class="modal-buttons">
                             <button type="button" class="close-modal-button">Cancel</button>
-                            <button type="submit">Add To-Do</button>
+                            <button type="submit" class="add-todo-button">Add To-Do</button>
                         </div>
                     </form>
                 </div>

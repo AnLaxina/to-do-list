@@ -5,14 +5,16 @@ form {
 }
 
 .close-modal-button,
-.add-project-button {
+.add-project-button,
+.add-todo-button {
     border-radius: 15px;
     width: 125px;
     border: none;
 }
 
 .close-modal-button:hover,
-.add-project-button:hover {
+.add-project-button:hover,
+.add-todo-button:hover {
     background-color: darkgrey;
     cursor: pointer;
 }
@@ -22,7 +24,8 @@ form {
 }
 
 /* [open] used because if not, the dialog will always be open regardless of its status (open or closed) */
-#add-project-modal[open] {
+#add-project-modal[open],
+#add-todo-modal[open] {
     display: flex;
     padding: 0px;
     flex-direction: column;
