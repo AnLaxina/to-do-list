@@ -29,15 +29,15 @@ export default class ModalManager {
     }
 
     // This time, I'll make it different by using template tags in HTML
-    static showAddTodoDialog(parentToAdd) {
+    static showAddTodoDialog() {
         const template = document.querySelector("#add-todo-template");
         // To actually "instantiate" a template, we need to clone it
         // As it's actually not in the DOM yet
         const clone = template.content.cloneNode(true);
         const dialog = clone.querySelector("dialog");
         this.#addEventsToModalButtons(dialog);
-
-        parentToAdd.appendChild(dialog);
+        // NOTE: for dialogs always append to the body rather than semantic section
+        document.body.appendChild(dialog);
         dialog.showModal();
     }
 
@@ -46,9 +46,10 @@ export default class ModalManager {
         dialog.addEventListener("click", (e) => {
             if (e.target.className === "close-modal-button") {
                 dialog.close();
+                dialog.remove();
             }
             else if (e.target.className === "add-todo-button") {
-                console.log("submitted! But other things need to happen!");
+                this.#addTodo(dialog);
             }
         })
     }
@@ -114,6 +115,18 @@ export default class ModalManager {
             form.reset();
             currentModal.close();
 
+        }
+    }
+
+    static #addTodo(dialog) {
+        const form = dialog.querySelector("form");
+
+        if (form.reportValidity()) {
+            const formData = this.#getInputData(form);
+            const toDoFields = [...formData.values()];
+            console.log(toDoFields);
+            console.log(`And the selected project index is: ${SidebarManager.selectedProjectIndex}`);
+            dialog.remove();
         }
     }
 

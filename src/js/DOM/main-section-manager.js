@@ -5,6 +5,7 @@ import { format, formatDistanceToNow } from "date-fns";
 
 export default class MainSectionManager {
     static mainSection = document.querySelector("main");
+    static #body = document.querySelector("body");
     static firstProject = ProjectManager.listOfProjects[0];
     static #firstInitialization = true;
     static #toDoSection = document.querySelector(".to-dos");
@@ -50,12 +51,17 @@ export default class MainSectionManager {
         })
     }
 
+
     static #addClickEvents() {
-        // Again, use event delegation here
+        // This fixes the issue where it creates multiple modals each time a sidebar is changed
+        if (this._alreadyAdded) return;
+        this._alreadyAdded = true;
+
         this.mainSection.addEventListener("click", (e) => {
             if (e.target.className === "add-to-do") {
-                ModalManager.showAddTodoDialog(this.mainSection);
+                ModalManager.showAddTodoDialog();
             }
-        })
+        });
     }
+
 }

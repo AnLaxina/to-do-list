@@ -72,6 +72,7 @@ export default class SidebarManager {
                 this.#highlightSelectedProject(parent);
                 const deleteIndex = parent?.dataset.deleteIndex;
                 this.selectedProject = e.target.textContent;
+                this.selectedProjectIndex = deleteIndex;
                 this.#testToDoProjects(deleteIndex);
                 MainSectionManager.initialize(deleteIndex);
             }
@@ -82,6 +83,7 @@ export default class SidebarManager {
                 this.#highlightSelectedProject(e.target);
                 const title = e.target.textContent.substring(0, e.target.textContent.length - 1);
                 this.selectedProject = title;
+                this.selectedProjectIndex = deleteIndex;
                 this.#testToDoProjects(deleteIndex);
                 MainSectionManager.initialize(deleteIndex);
             }
