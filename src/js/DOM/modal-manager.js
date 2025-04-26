@@ -28,6 +28,18 @@ export default class ModalManager {
         this.#addProjectDialog.showModal();
     }
 
+    // This time, I'll make it different by using template tags in HTML
+    static showAddTodoDialog(parentToAdd) {
+        const template = document.querySelector("#add-todo-template");
+        // To actually "instantiate" a template, we need to clone it
+        // As it's actually not in the DOM yet
+        const clone = template.content.cloneNode(true);
+        const dialog = clone.querySelector("dialog");
+
+        parentToAdd.appendChild(dialog);
+        dialog.show();
+    }
+
     static #populateAddProjectDialog() {
         this.#addProjectDialog.id = "add-project-modal";
         const dialogContent = `<header id="modal-header">

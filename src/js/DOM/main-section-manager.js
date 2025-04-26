@@ -1,4 +1,5 @@
 import ProjectManager from "../project-manager";
+import ModalManager from "./modal-manager";
 // For testing the newly installed data-fns package
 import { format, formatDistanceToNow } from "date-fns";
 
@@ -57,6 +58,7 @@ export default class MainSectionManager {
             if (e.target.className === "add-to-do") {
                 const formattedTimeNow = formatDistanceToNow(new Date(), { addSuffix: true, includeSeconds: true });
                 console.log(`I ate a chicken wing ${formattedTimeNow}`);
+                ModalManager.showAddTodoDialog(this.mainSection);
             }
         })
     }
