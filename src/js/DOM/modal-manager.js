@@ -35,9 +35,22 @@ export default class ModalManager {
         // As it's actually not in the DOM yet
         const clone = template.content.cloneNode(true);
         const dialog = clone.querySelector("dialog");
+        this.#addEventsToModalButtons(dialog);
 
         parentToAdd.appendChild(dialog);
         dialog.showModal();
+    }
+
+    // Add click event to each of the modal buttons (Cancel/Submit)
+    static #addEventsToModalButtons(dialog) {
+        dialog.addEventListener("click", (e) => {
+            if (e.target.className === "close-modal-button") {
+                dialog.close();
+            }
+            else if (e.target.className === "add-todo-button") {
+                console.log("submitted! But other things need to happen!");
+            }
+        })
     }
 
     static #populateAddProjectDialog() {
