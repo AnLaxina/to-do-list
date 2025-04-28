@@ -54,6 +54,8 @@ export default class MainSectionManager {
 
     static #addClickEvents() {
         // This fixes the issue where it creates multiple modals each time a sidebar is changed
+        // _alreadyAdded is just a class "field" to indicate whether or not it's already added
+        // I used `this` just so I don't have to create a global variable
         if (this._alreadyAdded) return;
         this._alreadyAdded = true;
 

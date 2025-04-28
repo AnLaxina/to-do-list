@@ -4,6 +4,10 @@ form {
     gap: 10px;
 }
 
+textarea {
+    resize: none;
+}
+
 .close-modal-button,
 .add-project-button,
 .add-todo-button {
