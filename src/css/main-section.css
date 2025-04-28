@@ -23,7 +23,7 @@ main {
     cursor: pointer;
 }
 
-input:checked+label {
+input[type="checkbox"]:checked+label {
     text-decoration: line-through;
     opacity: 0.5;
 }

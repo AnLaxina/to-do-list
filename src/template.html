@@ -56,11 +56,27 @@
 
                         <label for="todo-description">Description:</label>
                         <textarea id="todo-description" name="description" rows="4" required></textarea>
+                        <label for="priority">Priority:</label>
+                        <div class="priority-buttons">
+                            <div>
+                                <input type="radio" id="high-priority" name="priority" value="High" required>
+                                <label for="high-priority">High</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="medium-priority" name="priority" value="Medium">
+                                <label for="medium-priority">Medium</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="low-priority" name="priority" value="Low">
+                                <label for="low-priority">Low</label>
+                            </div>
+
+                        </div>
 
                         <label for="todo-due-date">Due Date:</label>
                         <input type="date" id="todo-due-date" name="dueDate">
-
-                        <!-- Will add priority buttons. But now now, -->
 
                         <div class="modal-buttons">
                             <button type="button" class="close-modal-button">Cancel</button>
