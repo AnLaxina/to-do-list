@@ -117,7 +117,6 @@ export default class SidebarManager {
 
     // This is for testing adding Todo's etc.
     static #testToDoProjects(deleteIndex) {
-        ProjectManager.addToDos(deleteIndex);
     }
 
     static #highlightSelectedProject(parent) {

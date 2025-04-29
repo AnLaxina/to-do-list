@@ -24,14 +24,15 @@ export default class ProjectManager {
         return this.listOfProjects[projectIndex].listOfToDos;
     }
 
-    // This method may or may not be for testing,
-    // All it does is add a bunch of to-do's with the name chicken lol
-    static addToDos(projectIndex) {
-        // If there has not been any to-do's then add some
-        if (this.getToDoList(projectIndex).length === 0) {
-            for (let i = 0; i < 5; i++) {
-                this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
-            }
-        }
+    // This method takes the appropriate project index as the first parameter, then the list of form data retrieved
+    // from the "Add To-Do" modal as the second parameter.
+    // All it does is add a new To-Do based off what the user has inputted
+    static addToDos(projectIndex, formDataList) {
+        // If the formDataList is not empty, then go through the list accordingly:
+        // First item: Title (Required)
+        // Second item: Description (Required)
+        // Third Item: Priority (Required)
+        // Fourth Item: Due Date (Optional, if not provided, the date is today's date)
+        this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
     }
 }

@@ -13,7 +13,7 @@ import "./css/main-section.css";
 
 
 // DOM related methods
-ProjectManager.addToDos(0);
+// ProjectManager.addToDos(0);
 SidebarManager.initialize();
 ModalManager.initialize();
 MainSectionManager.initialize();
