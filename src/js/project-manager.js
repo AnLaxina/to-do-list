@@ -1,5 +1,6 @@
 import Project from "./project";
 import ToDo from "./todo";
+import { format } from "date-fns";
 
 export default class ProjectManager {
 
@@ -24,6 +25,17 @@ export default class ProjectManager {
         return this.listOfProjects[projectIndex].listOfToDos;
     }
 
+    static printToDoList(projectIndex) {
+        console.log("Here are the to-do's for the following project: ");
+        for (const toDo of this.getToDoList(projectIndex)) {
+            console.log(`Title: ${toDo.title}`);
+            console.log(`Description: ${toDo.description}`);
+            console.log(`Priority: ${toDo.priority}`);
+            console.log(`Due Date: ${toDo.dueDate}`);
+            console.log('\n');
+        }
+    }
+
     // This method takes the appropriate project index as the first parameter, then the list of form data retrieved
     // from the "Add To-Do" modal as the second parameter.
     // All it does is add a new To-Do based off what the user has inputted
@@ -33,6 +45,12 @@ export default class ProjectManager {
         // Second item: Description (Required)
         // Third Item: Priority (Required)
         // Fourth Item: Due Date (Optional, if not provided, the date is today's date)
-        this.listOfProjects[projectIndex].addToDo(new ToDo(`Chicken ${i}`, `I love Chicken ${i}!`, "Today", "Urgent"));
+        if (formDataList.length !== 0) {
+            let userDate = new Date(formDataList[3]);
+            if (formDataList[3] === '') {
+                userDate = new Date();
+            }
+            this.listOfProjects[projectIndex].addToDo(new ToDo(formDataList[0], formDataList[1], formDataList[2], format(userDate, "MMMM d, y")));
+        }
     }
 }

@@ -125,7 +125,8 @@ export default class ModalManager {
             const formData = this.#getInputData(form);
             const toDoFields = [...formData.values()];
             console.log(toDoFields);
-            console.log(`And the selected project index is: ${SidebarManager.selectedProjectIndex}`);
+            ProjectManager.addToDos(SidebarManager.selectedProjectIndex, toDoFields);
+            ProjectManager.printToDoList(SidebarManager.selectedProjectIndex);
             dialog.remove();
         }
     }
