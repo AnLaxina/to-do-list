@@ -29,6 +29,14 @@ export default class MainSectionManager {
 
     static loadToDosDOM(projectIndex) {
         this.#toDoSection.innerHTML = "";
+        const currentTodoList = ProjectManager.getToDoList(projectIndex);
+
+        if (currentTodoList.length === 0) {
+            const emptyToDoTemplate = document.querySelector("#empty-to-do-template");
+            console.log(document.body.innerHTML);
+            const clone = emptyToDoTemplate.content.cloneNode(true);
+            this.#toDoSection.appendChild(clone);
+        }
         ProjectManager.getToDoList(projectIndex).forEach((toDoItem, index) => {
             const divNode = document.createElement("div");
             divNode.classList.add("to-do-item");
