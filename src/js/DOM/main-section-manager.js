@@ -33,7 +33,6 @@ export default class MainSectionManager {
 
         if (currentTodoList.length === 0) {
             const emptyToDoTemplate = document.querySelector("#empty-to-do-template");
-            console.log(document.body.innerHTML);
             const clone = emptyToDoTemplate.content.cloneNode(true);
             this.#toDoSection.appendChild(clone);
         }

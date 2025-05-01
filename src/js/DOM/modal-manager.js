@@ -125,7 +125,6 @@ export default class ModalManager {
         if (form.reportValidity()) {
             const formData = this.#getInputData(form);
             const toDoFields = [...formData.values()];
-            console.log(toDoFields);
             ProjectManager.addToDos(SidebarManager.selectedProjectIndex, toDoFields);
             ProjectManager.printToDoList(SidebarManager.selectedProjectIndex);
             MainSectionManager.loadToDosDOM(SidebarManager.selectedProjectIndex);
