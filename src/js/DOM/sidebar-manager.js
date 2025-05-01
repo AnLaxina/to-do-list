@@ -74,7 +74,9 @@ export default class SidebarManager {
                 this.selectedProject = e.target.textContent;
                 this.selectedProjectIndex = deleteIndex;
                 this.#testToDoProjects(deleteIndex);
-                MainSectionManager.initialize(deleteIndex);
+
+                MainSectionManager.loadProjectTitleDOM(deleteIndex);
+                MainSectionManager.loadToDosDOM(deleteIndex);
             }
             else if (e.target.className === "project-button") {
                 // This essentially removes the 'x' (the delete button) at the end of the textContent string
@@ -85,7 +87,9 @@ export default class SidebarManager {
                 this.selectedProject = title;
                 this.selectedProjectIndex = deleteIndex;
                 this.#testToDoProjects(deleteIndex);
-                MainSectionManager.initialize(deleteIndex);
+
+                MainSectionManager.loadProjectTitleDOM(deleteIndex);
+                MainSectionManager.loadToDosDOM(deleteIndex);
             }
         })
 

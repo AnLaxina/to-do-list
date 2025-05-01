@@ -1,4 +1,5 @@
 import ProjectManager from "../project-manager";
+import MainSectionManager from "./main-section-manager";
 import SidebarManager from "./sidebar-manager";
 
 // This is for creating pop-up windows or dialogs.
@@ -127,6 +128,7 @@ export default class ModalManager {
             console.log(toDoFields);
             ProjectManager.addToDos(SidebarManager.selectedProjectIndex, toDoFields);
             ProjectManager.printToDoList(SidebarManager.selectedProjectIndex);
+            MainSectionManager.loadToDosDOM(SidebarManager.selectedProjectIndex);
             dialog.remove();
         }
     }
