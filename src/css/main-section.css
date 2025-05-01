@@ -45,3 +45,7 @@ input[type="checkbox"]:checked+label {
     background-color: #1385bece;
     cursor: pointer;
 }
+
+#empty-to-do-message {
+    color: grey;
+}
